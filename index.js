@@ -11,5 +11,5 @@ app.use(morgan(':id :method :url :response-time'))
 app.use('/api', routes)
 console.log('welcome Pakistan');
 app.listen(PORT, () => {
-  console.log(`Server is running on PORT ${PORT}`)
+  console.log(`Server is running on PORT ${PORT}`);
 })

@@ -1,18 +1,17 @@
 {
-  "env": {
-    "node": true,
-    "commonjs": true,
-    "es2021": true
-  },
-  "extends": ["standard", "prettier"],
-  "parserOptions": {
-    "ecmaVersion": "latest"
-  },
-  "rules": {
-    "no-console": 2,
-    "indent": ["error", "tab"],
-    "linebreak-style": ["error", "linux"],
-    "quotes": ["error", "single"],
-    "semi": ["error", "never"]
-  }
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2021": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "rules": {
+        "semi": [
+            "error",
+            "never"
+        ]
+    }
 }
