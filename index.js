@@ -9,7 +9,6 @@ app.use(express.json()) //Used to parse JSON bodies
 app.use(express.urlencoded()) //Parse URL-encoded bodies
 app.use(morgan(':id :method :url :response-time'))
 app.use('/api', routes)
-console.log('welcome Pakistan');
 app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}`);
 })
