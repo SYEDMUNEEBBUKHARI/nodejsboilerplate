@@ -6,8 +6,8 @@ const routes = require('./routes')
 const PORT = process.env.PORT || 3030
 
 app.use(express.json()) //Used to parse JSON bodies
-app.use(express.urlencoded()) //Parse URL-encoded bodies
-app.use(morgan(':id :method :url :response-time'))
+app.use(express.urlencoded({ extended: true })) //Parse URL-encoded bodies
+app.use(morgan('combined'))
 app.use('/api', routes)
 
 app.listen(PORT, () => {
