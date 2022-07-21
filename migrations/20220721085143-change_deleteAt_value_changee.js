@@ -10,7 +10,7 @@ module.exports = {
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
     return Promise.all[
-      queryInterface.changeColumn('Users', 'deleted_At', {
+      queryInterface.changeColumn('Users', 'deletedAt', {
         type: Sequelize.DATE,
         allowNull: true,
       })
@@ -25,7 +25,7 @@ module.exports = {
      * await queryInterface.dropTable('users');
      */
     return Promise.all[
-      queryInterface.changeColumn('Users', 'deleted_At', {
+      queryInterface.changeColumn('Users', 'deletedAt', {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       })

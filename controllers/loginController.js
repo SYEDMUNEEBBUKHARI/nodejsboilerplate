@@ -1,12 +1,18 @@
 /* eslint-disable no-unused-vars */
 const db = require('../models')
-
+const bcrypt = require('bcrypt')
 //For Register Page
 const registerData = async (data) => {
-  const result = await db.Users.create({
-    ...data,
+  const { email, password } = data
+  const salt = await bcrypt.genSalt(12)
+  const hashedpassword = await bcrypt.hash(password, salt)
+  const user = await db.Users.create({
+    email,
+    password: hashedpassword,
   })
-  return result
+  if (user) {
+    return { message: 'new user created!' }
+  }
 }
 // For View
 const loginView = async (req, res) => {
@@ -18,7 +24,16 @@ const loginView = async (req, res) => {
   }
   return true
 }
+const Logout = (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      return console.log(err)
+    }
+    res.redirect('/')
+  })
+}
 module.exports = {
   registerData,
   loginView,
+  Logout,
 }
